@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/download.css">
+	</head>
+	<body>
+		<header>
+  <div class="bars">
+    <ul>
+      <li class="cor-1"></li>
+      <li class="cor-2"></li>
+      <li class="cor-3"></li>
+      <li class="cor-4"></li>
+      <li class="cor-5"></li>
+    </ul>
+  </div>
+  <div class="header-title">
+    <%= title %> 
+  </div>
+</header>
+<section class="content-block">
+  <h1>10 years collective papers</h1>
+  <% for(var j=0;j<branches;j++){ %>
+    <a href="#" class="btn paper-raise">Download</a>
+  <% } %>
+</section>
+
+<section class="content-block">
+  <h1>5 years collective papers</h1>
+  <% for(var j=0;j<branches;j++){ %>
+    <a href="#" class="btn paper-raise">Download</a>
+  <% } %>
+</section>
+
+<section class="content-block">
+  <h1>Yearwise papers</h1>
+  <% for (var i =0 ;i<10;i++) { %>
+  <h2><%= years[i] %></h2>
+  <a href="#" class="btn paper-raise">Download</a>
+  <% } %>
+</section>
+
+<footer>
+  Use a tool like <STRONG>Winzip</strong>/<STRONG>Winrar</strong> to extract the files .
+</footer>
+	</body>
+</html>
