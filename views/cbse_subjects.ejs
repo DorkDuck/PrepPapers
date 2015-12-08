@@ -19,12 +19,12 @@
 </header>
 
 <section class="content-block">
-  <h1>Yearwise papers</h1>
-  <% for (var i =0 ;i<10;i++) { %>
-  <h2><%= years[i] %></h2>
-  <a href="<%= links[i] %>" class="btn paper-raise">View / Download</a>
+  <h1>Download subject-wise: </h1>
+  <% for(var j=0;j<18;j++){ %>
+    <h2><%= subjects[j] %>  </h2><a href="<%= subjectLinks[j] %>" class="btn paper-raise">View Papers</a>
   <% } %>
 </section>
+
 
 <footer>
   Use a tool like <STRONG>Winzip</strong>/<STRONG>Winrar</strong> to extract the files .

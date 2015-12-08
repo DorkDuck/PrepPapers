@@ -17,7 +17,10 @@ router.get('/jee-main', function(req, res, next) {
   				"2007",
   				"2006"
   			],
-  	branches : 1
+  	branches : 1,
+    branchname : [
+          ""
+        ]
   })
 })
 
@@ -37,7 +40,10 @@ router.get('/jee-adv', function(req, res, next) {
   				"2007",
   				"2006"
   			],
-  	branches : 1
+  	branches : 1,
+    branchname : [
+          ""
+        ]
   })
 })
 
