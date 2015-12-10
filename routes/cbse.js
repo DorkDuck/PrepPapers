@@ -1,6 +1,116 @@
 var express = require('express');
 var router = express.Router();
 
+var linksten = {
+  "english-comm" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "english-lang-lit" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "foundation-it" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "french" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "hindi-course-a" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "hindi-course-b" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "maths" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "science" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ],
+  "social-science" : [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+  ]
+}
 
 var linkstwelve = {
   "accountancy" : [
@@ -222,29 +332,54 @@ var linkstwelve = {
 }
 
 router.get('/10-standard', function(req, res, next) {
-  res.render('download_pages', {
-  	title: "CBSE Class 10 Papers",
-  	years : [ 
-  				"2015",
-  				"2014",
-  				"2013",
-  				"2012",
-  				"2011",
-  				"2010",
-  				"2009",
-  				"2008",
-  				"2007",
-  				"2006"
-  			],
-  	branches : 3,
-    branchname : [
-          "All India",
-          "Delhi Region",
-          "Foreign"
-        ]
+  res.render('cbse_subjects', {
+    title: "CBSE Class 12 Papers",
+    subjects : [ 
+          "English Communicative",
+          "English Language and Literature",
+          "Foundation of Information Technology",
+          "French",
+          "Hindi Course A",
+          "Hindi Course B",
+          "Mathematics",
+          "Science",
+          "Social Science"
+        ],
+    subjectLinks : [
+          "/cbse/10-standard/english-comm",
+          "/cbse/10-standard/english-lang-lit",
+          "/cbse/10-standard/foundation-it",
+          "/cbse/10-standard/french",
+          "/cbse/10-standard/hindi-course-a",
+          "/cbse/10-standard/hindi-course-b",
+          "/cbse/10-standard/maths",
+          "/cbse/10-standard/science",
+          "/cbse/10-standard/social-science"
+        ],
+    no_subjects : 9
   })
 })
 
+router.get('/10-standard/:subject', function(req, res, next) {
+  var subject_title = "CBSE Class 10 Papers - " + (req.params.subject).toUpperCase()
+  res.render('download_pages', {
+    title : subject_title,
+    years : [ 
+          "2015",
+          "2014",
+          "2013",
+          "2012",
+          "2011",
+          "2010",
+          "2009",
+          "2008",
+          "2007",
+          "2006"
+        ],
+    links : linksten[req.params.subject],
+    saal : 10
+  })
+})
 
 router.get('/12-standard', function(req, res, next) {
   res.render('cbse_subjects', {
@@ -288,7 +423,8 @@ router.get('/12-standard', function(req, res, next) {
           "/cbse/12-standard/physics",
           "/cbse/12-standard/pol-science",
           "/cbse/12-standard/psychology"
-        ]
+        ],
+    no_subjects : 18
   })
 })
 
@@ -308,7 +444,9 @@ router.get('/12-standard/:subject', function(req, res, next) {
           "2007",
           "2006"
         ],
-    links : linkstwelve[req.params.subject]
+    links : linkstwelve[req.params.subject],
+    saal: 10
   })
 })
+
 module.exports = router;

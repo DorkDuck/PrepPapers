@@ -1,6 +1,17 @@
 var express = require('express')
 var router = express.Router()
 
+var jeemLinks = [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+]
+
+var jeeaLinks = [
+      "http://www.google.com",
+      "http://www.google.com",
+      "http://www.google.com"
+]
 
 router.get('/jee-main', function(req, res, next) {
   res.render('download_pages', {
@@ -8,42 +19,24 @@ router.get('/jee-main', function(req, res, next) {
   	years : [ 
   				"2015",
   				"2014",
-  				"2013",
-  				"2012",
-  				"2011",
-  				"2010",
-  				"2009",
-  				"2008",
-  				"2007",
-  				"2006"
+  				"2013"
   			],
-  	branches : 1,
-    branchname : [
-          ""
-        ]
+  	saal : 3,
+    links : jeemLinks
   })
 })
 
 
 router.get('/jee-adv', function(req, res, next) {
   res.render('download_pages', {
-  	title : "JEE - Advanced Papers",
-  	years : [ 
-  				"2015",
-  				"2014",
-  				"2013",
-  				"2012",
-  				"2011",
-  				"2010",
-  				"2009",
-  				"2008",
-  				"2007",
-  				"2006"
-  			],
-  	branches : 1,
-    branchname : [
-          ""
-        ]
+    title : "JEE - Advanced Papers",
+    years : [ 
+          "2015",
+          "2014",
+          "2013"
+        ],
+    saal : 3,
+    links : jeeaLinks
   })
 })
 
