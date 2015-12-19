@@ -9,7 +9,11 @@ var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
 var hm = require('./routes/hm')
 
+
 var app = express()
+var server =  require('http').Server(app)
+var io = require('socket.io')(server)
+server.listen(3000)
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -24,5 +28,21 @@ app.use('/medical', medical)
 app.use('/upsc', upsc)
 app.use('/hm', hm)
 
+var count = 0
+var views = 0
+var dcount = 0
+io.sockets.on('connection', function (socket) {
+	count++ 
+	views++
+    socket.emit('current_users', {value: count, tviews: views, downloads: dcount})
+    socket.on('disconnect', function() {
+    	count--
+    })
+    socket.on('d_increase', function(data) {
+    	dcount++
+    	count--
+    	views--
+    })
+})
 
 module.exports = app

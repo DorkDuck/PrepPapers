@@ -69,5 +69,15 @@
 	<script type="text/javascript" src="/javascripts/vendors/jquery-2.1.4.min.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
 	<script type="text/javascript" src="/javascripts/home.js"></script>
+	<script>
+    var socket = io.connect('http://127.0.0.1:3000');
+    socket.on('connect', function () {
+      socket.on('current_users', function(data) {
+      	$('.son').html(data.value)
+      	$('.tv').html(data.tviews)
+      	$('.pd').html(data.dcount)
+      })
+    })
+</script>
   </body>
 </html>

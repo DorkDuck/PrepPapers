@@ -29,5 +29,15 @@
 <footer>
   Use a tool like <STRONG>Winzip</strong>/<STRONG>Winrar</strong> to extract the files .
 </footer>
+
+  <script type="text/javascript" src="/javascripts/vendors/jquery-2.1.4.min.js"></script>
+  <script>
+  $('.btn').click(function() {
+    var socket = io.connect('http://127.0.0.1:3000');
+    socket.on('connect', function () {
+      socket.emit('d_increase',{})
+    })
+  })
+  </script>
 	</body>
 </html>
