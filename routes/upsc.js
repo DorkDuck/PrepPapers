@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-  res.render('download_pages');
+  res.render('upsc_subjects');
 })
 
 

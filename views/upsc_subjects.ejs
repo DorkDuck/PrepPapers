@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/download.css">
+	</head>
+	<body>
+		<header>
+  <div class="bars">
+    <ul>
+      <li class="cor-1"></li>
+      <li class="cor-2"></li>
+      <li class="cor-3"></li>
+      <li class="cor-4"></li>
+      <li class="cor-5"></li>
+    </ul>
+  </div>
+  <div class="header-title">
+    <%= title %> 
+  </div>
+</header>
+
+<section class="content-block">
+  <h1>Download subject-wise: </h1>
+  <% for(var j=0;j<no_subjects;j++){ %>
+    <h2><%= subjects[j] %>  </h2><a href="<%= subjectLinks[j] %>" class="btn paper-raise">View Papers</a>
+  <% } %>
+</section>
+
+
+<footer>
+  Use a tool like <STRONG>Winzip</strong>/<STRONG>Winrar</strong> to extract the files .
+</footer>
+	</body>
+</html>
