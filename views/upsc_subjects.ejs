@@ -14,14 +14,14 @@
     </ul>
   </div>
   <div class="header-title">
-    <%= title %> 
+    UPSC Papers 
   </div>
 </header>
 
 <section class="content-block">
-  <h1>Download subject-wise: </h1>
-  <% for(var j=0;j<no_subjects;j++){ %>
-    <h2><%= subjects[j] %>  </h2><a href="<%= subjectLinks[j] %>" class="btn paper-raise">View Papers</a>
+  <h1>UPSC Papers of all years are centrally made available by the Government of India .</h1>
+  <% for(var j=0;j<years;j++){ %>
+    <h2><%= year[j] %>  </h2><a href="<%= links[j] %>" class="btn paper-raise">View Papers</a>
   <% } %>
 </section>
 
@@ -30,6 +30,15 @@
   Use a tool like <STRONG>Winzip</strong>/<STRONG>Winrar</strong> to extract the files .
 </footer>
 
-
+ <script type="text/javascript" src="/javascripts/vendors/jquery-2.1.4.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+  <script>
+  $('.btn').click(function() {
+    var socket = io.connect('http://127.0.0.1:3000');
+    socket.on('connect', function () {
+      socket.emit('d_increase',{})
+    })
+  })
+  </script>
 	</body>
 </html>
