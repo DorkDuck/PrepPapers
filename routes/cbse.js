@@ -11,8 +11,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/ENGLISH_COMMUNI_DELHI_X_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Eng_Communicative_1_X_Out20091.pdf"
   ],
   "english-lang-lit" : [
       "http://www.google.com",
@@ -23,33 +23,9 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
-  ],
-  "foundation-it" : [
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
-  ],
-  "french" : [
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
-  ],
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/ENGLISH_LL_DELHI_X_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Eng_Lang&Liter_1_X_Out20091.pdf"
+  ]
   "hindi-course-a" : [
       "http://www.google.com",
       "http://www.google.com",
@@ -59,8 +35,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/HINDI_CO_A_DELHI_X_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Hindi_CourseA_1_X_Out20091.pdf"
   ],
   "hindi-course-b" : [
       "http://www.google.com",
@@ -71,8 +47,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/HINDI_COUR_B_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Hindi_CourseB_1_X_Out20091.pdf"
   ],
   "maths" : [
       "http://www.google.com",
@@ -83,8 +59,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/math10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Mathematics_1_X_Out20091.pdf"
   ],
   "science" : [
       "http://www.google.com",
@@ -95,8 +71,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/SCIENCE_THEOR_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Science_1_X_Out20091.pdf"
   ],
   "social-science" : [
       "http://www.google.com",
@@ -107,8 +83,8 @@ var linksten = {
       "http://www.google.com",
       "http://www.google.com",
       "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://cbse.nic.in/curric~1/qp2010/delhi10/social_science_DELHI_X_10.pdf",
+      "http://cbse.nic.in/curric~1/qp2009/Ques_Paper/Ques_Paper_X/Social_Science_1_X_Out20091.pdf"
   ]
 }
 
@@ -337,8 +313,6 @@ router.get('/10-standard', function(req, res, next) {
     subjects : [ 
           "English Communicative",
           "English Language and Literature",
-          "Foundation of Information Technology",
-          "French",
           "Hindi Course A",
           "Hindi Course B",
           "Mathematics",
@@ -348,15 +322,13 @@ router.get('/10-standard', function(req, res, next) {
     subjectLinks : [
           "/cbse/10-standard/english-comm",
           "/cbse/10-standard/english-lang-lit",
-          "/cbse/10-standard/foundation-it",
-          "/cbse/10-standard/french",
           "/cbse/10-standard/hindi-course-a",
           "/cbse/10-standard/hindi-course-b",
           "/cbse/10-standard/maths",
           "/cbse/10-standard/science",
           "/cbse/10-standard/social-science"
         ],
-    no_subjects : 9
+    no_subjects : 7
   })
 })
 
@@ -371,13 +343,10 @@ router.get('/10-standard/:subject', function(req, res, next) {
           "2012",
           "2011",
           "2010",
-          "2009",
-          "2008",
-          "2007",
-          "2006"
+          "2009"
         ],
     links : linksten[req.params.subject],
-    saal : 10
+    saal : 7
   })
 })
 
@@ -439,13 +408,10 @@ router.get('/12-standard/:subject', function(req, res, next) {
           "2012",
           "2011",
           "2010",
-          "2009",
-          "2008",
-          "2007",
-          "2006"
+          "2009"
         ],
     links : linkstwelve[req.params.subject],
-    saal: 10
+    saal: 7
   })
 })
 

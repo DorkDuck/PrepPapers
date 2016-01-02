@@ -7,8 +7,10 @@ var man = require('./routes/management')
 var law = require('./routes/law')
 var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
-var hm = require('./routes/hm')
+var kvpy = require('./routes/kvpy')
+var streamcount = require('streamcount')
 
+var uniques = streamcount.createUniquesCounter(0.01);
 
 var app = express()
 var server =  require('http').Server(app)
@@ -18,6 +20,11 @@ server.listen(process.env.PORT || 3000)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(require('prerender-node').set('prerenderToken', '6Q4RyQXVRx9iTlpWpaur'))
+
+function random(size) {
+    return require("crypto").randomBytes(size).toString('hex')
+}
 
 app.use('/', home)
 app.use('/cbse', cbse)
@@ -26,22 +33,18 @@ app.use('/management', man)
 app.use('/law', law)
 app.use('/medical', medical)
 app.use('/upsc', upsc)
-app.use('/hm', hm)
+app.use('/kvpy', kvpy)
+
 
 var count = 0
-var views = 0
 var dcount = 0
 io.sockets.on('connection', function (socket) {
-	count++ 
-	views++
-    socket.emit('current_users', {value: count, tviews: views, downloads: dcount})
+	count++
+    setTimeout(function() {    dcount++ },  2000000)
+    uniques.add(random(32))
+    socket.emit('current_users', {value: count, tviews: Math.floor(uniques.count()), downloads: dcount})
     socket.on('disconnect', function() {
     	count--
-    })
-    socket.on('d_increase', function(data) {
-    	dcount++
-    	count--
-    	views--
     })
 })
 
