@@ -2,7 +2,7 @@
   "name": "preppapers",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
   "dependencies": {
     "crypto": "0.0.3",
