@@ -15,12 +15,13 @@ router.get('/', function(req, res, next) {
           "2009"
   	],
   	links: [
-  		"http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com",
-      "http://www.google.com"
+      "http://www.upsc.gov.in/questionpaper/2015.htm#PageTop",
+  		"http://www.upsc.gov.in/questionpaper/2014.htm#PageTop",
+      "http://www.upsc.gov.in/questionpaper/2013.htm#PageTop",
+      "http://www.upsc.gov.in/questionpaper/2012.htm#PageTop",
+      "http://www.upsc.gov.in/questionpaper/2011.htm#PageTop",
+      "http://www.upsc.gov.in/questionpaper/2010.htm#PageTop",
+      "http://www.upsc.gov.in/questionpaper/2009.htm#PageTop"
   	]
   })
 })
