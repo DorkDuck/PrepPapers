@@ -9,7 +9,7 @@ body {
   font-weight: 00;
   font-size: 30px;
   display: block;
-  background: url("http://hdwallpaperia.com/wp-content/uploads/2013/11/Books-Bokeh.jpg");
+  background: url("http://wallpapercave.com/wp/j7dBFIW.jpg");
   /*#34495e*/
   z-index: -1;
   top: 80%;
@@ -17,121 +17,6 @@ body {
 
 .container {
   width: 100%;
-}
-.navbar {
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,.15);
-  float: none;
-  background: #FFFFFF;
-  width: 100%;
-  //border-radius: 50px;
-  display: inline-block;
-  margin: 0 auto;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-
-.navbar li {
-  font-weight: 700;
-  text-transform: uppercase;
-  list-style-type: none;
-  display: inline-block;
-  float: left;
-}
-
-.navbar li:first-child a {
- //border-radius: 50px 0 0 50px;
-}
-
-.navbar li:last-child a {
-  //border-radius: 0 50px 50px 0;
-}
-
-.dropdown-menu li {
-  font-size: 20px;
-}
-.dropdown-menu:before {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;	
-  border-bottom: 16px solid #FFFFFF;
-  top: -16px;
-  left: 24px;
-}
-
-.dropdown-menu {
-  visibility: hidden;
-  padding: 0;
-  color: #76a6e6;
-  width: 100%;
-  max-width: 200px;
-  box-shadow: 0px 2px 1px 1px rgba(0,0,0,.5);
-  border-radius: 100%;
-  position: relative;
-  margin-top: 36px;
-  position: absolute;
-}
-
-.dropdown-menu:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;	
-  border-bottom: 17px solid rgba(0,0,0,.15);
-  top: -16px;
-  left: 25px;
-  z-index: -10;
-}
-
-.dropdown-menu li:first-child {
-  border-radius: 12px 12px 0 0;
-}
-
-.dropdown-menu li {
-  list-style-type: none;
-  float: none;
-  display: block;
-  padding: 12px;
-  border-bottom: 1px solid #dedede;
-  box-shadow: 0 0 0 0;
-  background: #FFFFFF;
-}
-
-.dropdown-menu li:hover {
-  background: #e5e5e5;
-  cursor: pointer;
-}
-
-.dropdown-menu li:last-child {
-  border-bottom: 0;
-  border-radius: 0 0 12px 12px;
-}
-
-.open {
-  visibility: visible;
-}
-
-.nb-link a, .main-top {
-  display: inline-block;
-  list-style-type: none;
-  padding: 12px 24px;
-  color: #76a6e6;
-  text-decoration: none;
-  cursor: pointer;
-  border-right: 1px solid #dedede;
-}
-
-
-.nb-link a:hover, .main-top:hover {
-    background: #e5e5e5;
 }
 
 
@@ -207,4 +92,99 @@ h3 {
 }
 .paper-raise:hover:before {
   box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+}
+
+
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #f44355;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+header > nav > div {
+  float: left;
+  width: 16.6666%;
+  height: 100%;
+  position: relative;
+}
+
+header > nav > div > a {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 50px;
+  color: #fbfbfb;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+header > nav > div:hover > a {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+header > nav > div > div {
+  display: none;
+  overflow: hidden;
+  background-color: white;
+  min-width: 200%;
+  position: absolute;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 10px;
+}
+
+header > nav > div:not(:first-of-type):not(:last-of-type) > div {
+  left: -50%;
+  border-radius: 0 0 3px 3px;
+}
+
+header > nav > div:first-of-type > div {
+  left: 0;
+  border-radius: 0 0 3px 0;
+}
+
+header > nav > div:last-of-type > div {
+  right: 0;
+  border-radius: 0 0 0 3px;
+}
+
+header > nav > div:hover > div {
+  display: block;
+}
+
+header > nav > div > div > a {
+  display: block;
+  float: left;
+  padding: 8px 10px;
+  width: 46%;
+  margin: 2%;
+  text-align: center;
+  background-color: #f44355;
+  color: #fbfbfb;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+header > nav > div > div > a:hover {
+  background-color: #212121;
+  cursor: pointer;
+}
+
+h1 {
+  margin-top: 100px;
+}
+
+
+@media (max-width:600px) {
+  header > nav > div > div > a {
+    margin: 5px 0;
+    width: 100%;
+  }
 }
