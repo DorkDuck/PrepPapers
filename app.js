@@ -7,7 +7,6 @@ var man = require('./routes/management')
 var law = require('./routes/law')
 var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
-var kvpy = require('./routes/kvpy')
 var streamcount = require('streamcount')
 
 var uniques = streamcount.createUniquesCounter(0.01);
@@ -33,7 +32,6 @@ app.use('/management', man)
 app.use('/law', law)
 app.use('/medical', medical)
 app.use('/upsc', upsc)
-app.use('/kvpy', kvpy)
 
 
 var count = 0
