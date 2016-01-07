@@ -7,6 +7,8 @@ var man = require('./routes/management')
 var law = require('./routes/law')
 var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
+var seo = require('mean-seo')
+var nseo  = require('seo')
 var streamcount = require('streamcount')
 
 var uniques = streamcount.createUniquesCounter(0.01);
@@ -20,10 +22,18 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(require('prerender-node').set('prerenderToken', '6Q4RyQXVRx9iTlpWpaur'))
+app.use(seo({ cacheClient: 'disk' }))
+app.use(new nseo({
+  cacheDirectory: path.resolve(process.cwd(), '.seo-cache'),
+  routes: require('./seo-routes'),
+  requestURL: 'http://preppapers.com'
+}).init())
 
 function random(size) {
     return require("crypto").randomBytes(size).toString('hex')
 }
+
+
 
 app.use('/', home)
 app.use('/cbse', cbse)
@@ -32,7 +42,6 @@ app.use('/management', man)
 app.use('/law', law)
 app.use('/medical', medical)
 app.use('/upsc', upsc)
-
 
 var count = 0
 var dcount = 0
