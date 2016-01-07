@@ -42,6 +42,9 @@ app.use('/management', man)
 app.use('/law', law)
 app.use('/medical', medical)
 app.use('/upsc', upsc)
+app.get('/sitemap.xml', function(req, res) {
+	res.sendFile('./public/sitemap.xml')
+})
 
 var count = 0
 var dcount = 0

@@ -14,6 +14,7 @@
     "prerender-node": "^2.2.0",
     "seo": "0.0.15",
     "socket.io": "^1.3.7",
-    "streamcount": "^1.0.1"
+    "streamcount": "^1.0.1",
+    "xml": "^1.0.0"
   }
 }
