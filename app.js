@@ -51,7 +51,7 @@ var count = 0
 var dcount = 0
 io.sockets.on('connection', function (socket) {
 	count++
-    setTimeout(function() {    dcount++ },  2000000)
+    setTimeout(function() {    dcount++ },  2000)
     uniques.add(random(32))
     socket.emit('current_users', {value: count, tviews: Math.floor(uniques.count()), downloads: dcount})
     socket.on('disconnect', function() {

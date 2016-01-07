@@ -1,5 +1,5 @@
 
- var socket = io.connect("127.0.0.1:3000");
+ var socket = io.connect("http://preppapers.com/");
     socket.on('connect', function () {
       socket.on('current_users', function(data) {
         $('.son').html(data.value)
