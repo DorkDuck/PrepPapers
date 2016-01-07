@@ -43,6 +43,7 @@ app.use('/law', law)
 app.use('/medical', medical)
 app.use('/upsc', upsc)
 app.get('/sitemap.xml', function(req, res) {
+	res.header('Content-Type', 'application/xml')
 	res.sendFile('./public/sitemap.xml')
 })
 
