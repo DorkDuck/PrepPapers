@@ -5,6 +5,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "configstore": "^1.4.0",
     "crypto": "0.0.3",
     "debug": "~2.2.0",
     "ejs": "~2.3.3",

@@ -9,9 +9,10 @@ var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
 var seo = require('mean-seo')
 var nseo  = require('seo')
-var streamcount = require('streamcount')
-
-var uniques = streamcount.createUniquesCounter(0.01);
+var Configstore = require('configstore')
+var pkg = require('./package.json')
+var conf = new Configstore(pkg.name, {visitorCount: 0})
+conf.set('downloadCount', 0)
 
 var app = express()
 var server =  require('http').Server(app)
@@ -48,12 +49,17 @@ app.get('/sitemap.xml', function(req, res) {
 })
 
 var count = 0
-var dcount = 0
+var dcount = conf.get('downloadCount')
+var tcount = 0
 io.sockets.on('connection', function (socket) {
-	count++
-    setTimeout(function() {    dcount++ },  2000)
-    uniques.add(random(32))
-    socket.emit('current_users', {value: count, tviews: Math.floor(uniques.count()), downloads: dcount})
+	  count = count + 1
+    tcount = tcount + 1
+    conf.set('visitorCount', tcount)
+    setTimeout(function() {   
+     dcount = dcount + count
+     conf.set('downloadCount', dcount) 
+    },  2000)
+    socket.emit('current_users', {value: count, tviews: tcount, downloads: dcount})
     socket.on('disconnect', function() {
     	count--
     })
