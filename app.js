@@ -50,7 +50,7 @@ app.get('/sitemap.xml', function(req, res) {
 
 var count = 0
 var dcount = conf.get('downloadCount')
-var tcount = 0
+var tcount = conf.get('visitorCount')
 io.sockets.on('connection', function (socket) {
 	  count = count + 1
     tcount = tcount + 1
