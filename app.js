@@ -9,10 +9,15 @@ var medical = require('./routes/medical')
 var upsc = require('./routes/upsc')
 var seo = require('mean-seo')
 var nseo  = require('seo')
-var Configstore = require('configstore')
-var pkg = require('./package.json')
-var conf = new Configstore(pkg.name, {visitorCount: 0})
-conf.set('downloadCount', 0)
+var mongoose = require('mongoose')
+mongoose.connect('mongodb://sarthak:yesmyyear@ds047865.mongolab.com:47865/preppapers')
+var statModel = mongoose.model('stats', { 
+                                                viewCount: Number,
+                                                downCount: Number,
+                                                realtimeCount: Number, 
+                                                name: String
+                                              });
+
 
 var app = express()
 var server =  require('http').Server(app)
@@ -48,21 +53,31 @@ app.get('/sitemap.xml', function(req, res) {
 	res.sendFile('./public/sitemap.xml')
 })
 
-var count = 0
-var dcount = conf.get('downloadCount')
-var tcount = conf.get('visitorCount')
+
 io.sockets.on('connection', function (socket) {
-	  count = count + 1
-    tcount = tcount + 1
-    conf.set('visitorCount', tcount)
-    setTimeout(function() {   
-     dcount = dcount + count
-     conf.set('downloadCount', dcount) 
-    },  2000)
-    socket.emit('current_users', {value: count, tviews: tcount, downloads: dcount})
-    socket.on('disconnect', function() {
-    	count--
+  statModel.find({name: 'saru95'}, function(err,docs) {
+  if (!err){
+      var count = docs[0].realtimeCount
+      var dcount = docs[0].downCount
+      var tcount = docs[0].viewCount
+      statModel.findOneAndUpdate({ name: 'saru95' }, { $inc: { viewCount: 1 }}, function(err, found){
+        if (!err) {
+          statModel.findOneAndUpdate({ name: 'saru95' }, { $inc: { downCount: 1 }}, function(err2, found2){
+              if (!err2) {
+                    statModel.findOneAndUpdate({name: 'saru95'}, { $inc: {realtimeCount: 1}}, function(err3, found3) {
+                      if (!err3) {
+                        socket.emit('current_users', {value: count, tviews: tcount, downloads: dcount})
+                        socket.on('disconnect', function() {
+                          statModel.findOneAndUpdate({name: 'saru95'}, { $inc: {realtimeCount: -1}}, function(err4, found4){})
+                        })
+                      }
+                    })
+              }
+          })
+        }
     })
+  } 
+})
 })
 
 module.exports = app

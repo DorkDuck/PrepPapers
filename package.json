@@ -11,6 +11,7 @@
     "ejs": "~2.3.3",
     "express": "~4.13.1",
     "mean-seo": "0.0.8",
+    "mongoose": "^4.4.4",
     "node-seo": "0.0.2",
     "prerender-node": "^2.2.0",
     "seo": "0.0.15",
